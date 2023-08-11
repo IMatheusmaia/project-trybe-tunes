@@ -1,7 +1,5 @@
 function App() {
-  return (
-    <p>Trybetunes</p>
-  );
+  return '';
 }
 
 export default App;
