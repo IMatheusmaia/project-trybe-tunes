@@ -7,7 +7,7 @@ import MusicCard from '../../components/MusicCard';
 
 function Album() {
   const { state } = useLocation();
-  const id = state.toString();
+  const id = String(state);
   const [album, setAlbum] = useState<AlbumType | null>(null);
   const [listMusic, setListMusic] = useState<SongType[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
@@ -30,19 +30,20 @@ function Album() {
 
   return (
     <div>
-      {album === null ? <h2>Nenhum música foi encontrada</h2>
+      {album === null ? <h2>Nenhum álbum foi encontrado</h2>
         : (
           <div>
-            <h1
+            <img src={ album.artworkUrl100 } alt={ album.collectionName } />
+            <h2
               data-testid="artist-name"
             >
               { album.artistName }
-            </h1>
-            <h2
+            </h2>
+            <h3
               data-testid="album-name"
             >
               {album.collectionName}
-            </h2>
+            </h3>
             <ul>
               { listMusic.map((music) => (
                 <MusicCard

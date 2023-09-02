@@ -1,8 +1,12 @@
 import { Outlet } from 'react-router-dom';
+import Header from '../../components/Heander';
 
 function Layout() {
   return (
-    <Outlet />
+    <>
+      <Header />
+      <Outlet />
+    </>
   );
 }
 
