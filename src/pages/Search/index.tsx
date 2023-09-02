@@ -58,6 +58,7 @@ function Search() {
                   <Link
                     key={ album.collectionId }
                     to={ `/album/${album.collectionId}` }
+                    state={ album.collectionId }
                     data-testid={ `link-to-album-${album.collectionId}` }
                   >
                     <p>{ album.collectionName }</p>
