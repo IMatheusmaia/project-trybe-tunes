@@ -4,23 +4,24 @@ import fillHeart from '../images/checked_heart.png';
 import voidHeart from '../images/empty_heart.png';
 import { addSong, removeSong } from '../services/favoriteSongsAPI';
 
-function MusicCard({ trackName, previewUrl, trackId }: SongType) {
-  const [checked, setChecked] = useState<boolean>(false);
+function MusicCard({ trackName, previewUrl, trackId,
+  isFavorite, handleFavorites }: SongType) {
+  const [checked, setChecked] = useState<boolean | undefined>(isFavorite);
   const [initialLike, setInitialLike] = useState<boolean>(false);
 
   useEffect(() => {
     const addOrRemoveFavorite = async () => {
       if (checked === true) {
-        console.log(await addSong({ trackName, previewUrl, trackId }));
+        await addSong({ trackName, previewUrl, trackId });
       }
       if (checked === false) {
-        console.log(await removeSong({ trackName, previewUrl, trackId }));
+        await removeSong({ trackName, previewUrl, trackId });
       }
     };
     if (initialLike) {
       addOrRemoveFavorite();
     }
-  }, [checked, trackName, previewUrl, trackId]);
+  }, [checked, initialLike, trackName, previewUrl, trackId]);
 
   const handleChange = () => {
     setChecked(!checked);
