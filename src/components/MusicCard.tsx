@@ -5,7 +5,7 @@ import voidHeart from '../images/empty_heart.png';
 import { addSong, removeSong } from '../services/favoriteSongsAPI';
 
 function MusicCard({ trackName, previewUrl, trackId,
-  isFavorite, handleFavorites }: SongType) {
+  isFavorite }: SongType) {
   const [checked, setChecked] = useState<boolean | undefined>(isFavorite);
   const [initialLike, setInitialLike] = useState<boolean>(false);
 
@@ -42,7 +42,6 @@ function MusicCard({ trackName, previewUrl, trackId,
       >
         <input
           type="checkbox"
-          id={ trackName }
           checked={ checked }
           onChange={ handleChange }
         />

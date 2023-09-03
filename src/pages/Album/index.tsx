@@ -28,10 +28,6 @@ function Album() {
     fetchMusics();
   }, [id]);
 
-  const handleFavorites = () => {
-
-  };
-
   if (loading) {
     return <Loading />;
   }
@@ -62,7 +58,6 @@ function Album() {
                   isFavorite={
                     favMusics.filter((fav) => fav.trackId === music.trackId).length > 0
                   }
-                  handleFavorites={ handleFavorites }
                 />))}
             </ul>
           </div>)}

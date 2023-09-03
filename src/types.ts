@@ -21,5 +21,4 @@ export type SongType = {
   trackName: string,
   previewUrl: string,
   isFavorite?: boolean
-  handleFavorites?: () => void
 };
